@@ -1,5 +1,5 @@
 //Constantes para la lectura de los ejes X y Y
-//pines de entrada Analogico
+//pines de entrada Analogicos
 const byte ejeX = A0, ejeY = A1;
 
 //variables para la lectura de los datos
@@ -24,37 +24,30 @@ void readJoystickData(){
   ty = analogRead(ejeY);
   //Opcional para ver en el monitor serial lo datos de entrada en el eje X o Y
   //Serial.print("Eje X: "+ String(tx) + " , Eje Y: " + String(ty)+ "\n");
-
   if( (tx >= 484 && tx<= 512)  && ( ty >= 484 &&   ty <= 512)){
     joystickWithoutActions();
   }
-
-
   if( tx >= 800 ){
      ejeXTopActions();
   }else if(tx <= 400){
     ejeXBottomActions();
   }
-  
-
   if( ty >= 800){
     ejeYTopActions();
   } else if (ty <= 400 ) {
     ejeYBottomActions();
   }
-
 }
 void joystickWithoutActions (){
   /*
-  todas las acciones cuando el joystick no hace nada
-  por ejemplo apagar leds, motores etc
+  todas las acciones cuando el joystick este sin movimiento
   */
 }
 
 void ejeXTopActions(){
   /* todas las acciones que requieran hacer cuando el eje x superior
   esta seleccionado ( palanca en sentido superior del eje x  :))
-  por ejemplo digitalWrite(ledTopx, LOW);
+  por ejemplo digitalWrite(ledTopx, HIGH);
   */
 }
 
@@ -67,7 +60,7 @@ void ejeXBottomActions(){
  void ejeYTopActions(){
    /* todas las acciones que requieran hacer cuando el eje y  superior
       esta seleccionado ( palanca en sentido superior del eje Y :))
-      por ejemplo digitalWrite(ledTopY, LOW);
+      por ejemplo digitalWrite(ledTopY, HIGH);
   */
  }
 
