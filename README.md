@@ -1,2 +1,2 @@
 # arduino_examples
-examples of arduino
+ejemplos de arduino omj2
